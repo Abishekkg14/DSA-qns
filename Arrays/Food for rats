@@ -1,0 +1,30 @@
+static int solver(int r, int u, int n, int[] houses) {
+
+    int needed = r * u;
+
+    int total = 0;
+    for (int x : houses) {
+        total += x;
+    }
+
+    // Not enough food overall
+    if (total < needed || n <= 1) {
+        return 0;
+    }
+
+    int collected = 0;
+    int count = 0;
+
+    // Start from house 2 -> index 1
+    for (int i = 1; i < n; i++) {
+
+        collected += houses[i];
+        count++;
+
+        if (collected >= needed) {
+            return count;
+        }
+    }
+
+    return 0;
+}
