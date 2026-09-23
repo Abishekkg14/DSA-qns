@@ -1,0 +1,19 @@
+class Solution {
+    static int digitsum(int n){
+        int sum = 0;
+        while(n > 0){
+            int digit = n % 10;
+            sum += digit;
+            n = n / 10;
+        }
+        return sum;
+    }
+
+    public int digitalRoot(int n) {
+        // Keep summing digits until n becomes a single digit
+        while (n >= 10) {
+            n = digitsum(n);
+        }
+        return n;
+    }
+}
